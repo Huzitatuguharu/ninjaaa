@@ -18,13 +18,17 @@ const App = {
       const els = App.elements.header;
       els.index.className = "header";
       els.headerText.innerHTML = "ヘッダーです";
+
+      els.headerIcon.className = "material-icons";
+      els.headerIcon.innerHTML = "shopping_cart";
+
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.headerText);
+      els.index.appendChild(els.headerIcon);
     },
     renderContent() {
       const els = App.elements.content;
       els.index.className = "container__content";
-
     },
     renderFooter() {
       const els = App.elements.footer;
@@ -42,11 +46,11 @@ const App = {
       index: document.createElement("main"),
       cardBox: document.createElement("div"),
       card: document.createElement("p"),
-
     },
     header: {
       index: document.createElement("header"),
       headerText: document.createElement("div"),
+      headerIcon: document.createElement("span"),
     },
     footer: {
       index: document.createElement("footer"),
