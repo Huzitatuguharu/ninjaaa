@@ -608,8 +608,14 @@ template {
   left: 0;
   top:0;
   background-color: #8070d4;
+  padding: 12px;
   border: #333;
+  display: flex;
+justify-content: space-around;
+
 }
+
+
 
 .footer{
   bottom: 0;
@@ -617,5 +623,8 @@ template {
   position: fixed;
   width: 100%;
   background-color: #8070d4;
+  justify-content: space-around;
+  padding: 12px;
+
   border: #333;
 }
