@@ -1,4 +1,9 @@
 const App = {
+//   The eshop:
+// List the cards
+// User wallet
+// Option to buy the card
+// Option to sell the card
   init() {
     console.log("Start the engines");
 
@@ -29,6 +34,10 @@ const App = {
     renderContent() {
       const els = App.elements.content;
       els.index.className = "container__content";
+      els.cardBox.innerHTML = "content";
+
+       App.elements.app.appendChild(els.index);
+       els.index.appendChild(els.cardBox);
     },
     renderFooter() {
       const els = App.elements.footer;
