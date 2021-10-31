@@ -1,14 +1,13 @@
 const list = {
   state: {
-    card: [
+    item: [
       {
         id: 0,
         name: "くない",
         price: 200,
-        description:
-          "戦闘では無く、忍者の活動をサポートする忍具として使用されます",
+        description: "忍者の活動をサポートする忍具として使用されます",
         stock: 10,
-        images: [],
+        img: "./img/kunai.png",
       },
       {
         id: 1,
@@ -16,7 +15,7 @@ const list = {
         price: 500,
         description: "投げてつかいます",
         stock: 5,
-        images: [],
+        img: "./img/syuriken.png",
       },
       {
         id: 2,
@@ -24,7 +23,7 @@ const list = {
         price: 10,
         description: "逃げる途中にばら撒くことで追手に怪我を負わせます",
         stock: 300,
-        images: [],
+        img: "./img/makibishi.png",
       },
     ],
   },
