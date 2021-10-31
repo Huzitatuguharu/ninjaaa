@@ -22,7 +22,7 @@ const App = {
 
       const els = App.elements.header;
       els.index.className = "header";
-      els.headerText.innerHTML = "ヘッダーです";
+      els.headerText.innerHTML = "忍具SHOP";
 
       els.headerIcon.className = "material-icons";
       els.headerIcon.innerHTML = "shopping_cart";
@@ -34,10 +34,28 @@ const App = {
     renderContent() {
   console.log(this);
   console.log(this);
+        console.log(list.state.item.length);
 
       const els = App.elements.content;
       els.index.className = "container__content";
-      els.cardBox.innerHTML = "content";
+
+      for (let i = 0; i<list.state.item.length; i++){
+        const product = list.state.item[i];
+        console.log(product);
+        const item_name = document.createElement("p");
+        const item_description = document.createElement("p");
+        const item_price = document.createElement("p");
+        const item_image = document.createElement("img");
+        item_name.innerHTML = product.name;
+        item_description.innerHTML = product.description;
+        item_price.innerHTML = `${product.price} 両`
+        item_image.src = product.img;
+        item_image.alt = product.name;
+        els.cardBox.appendChild(item_name);
+        els.cardBox.appendChild(item_description);
+        els.cardBox.appendChild(item_price);
+        els.cardBox.appendChild(item_image);
+      }
 
        App.elements.app.appendChild(els.index);
        els.index.appendChild(els.cardBox);
