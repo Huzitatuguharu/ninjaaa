@@ -1,11 +1,9 @@
 const App = {
-//   The eshop:
-// List the cards
-// User wallet
-// Option to buy the card
-// Option to sell the card
+
   init() {
     console.log("Start the engines");
+  console.log(this);
+  console.log(list);
 
     this.controllers.renderHeader();
     this.controllers.renderContent();
@@ -13,13 +11,15 @@ const App = {
     this.controllers.renderFooter();
     console.log("Finished");
   },
-
   state: {
     navChild: [{ text: "Button" }, { text: "Accordion" }, { text: "Input" }],
   },
 
   controllers: {
     renderHeader() {
+      // console.log(list);
+  console.log(this);
+
       const els = App.elements.header;
       els.index.className = "header";
       els.headerText.innerHTML = "ヘッダーです";
@@ -32,6 +32,9 @@ const App = {
       els.index.appendChild(els.headerIcon);
     },
     renderContent() {
+  console.log(this);
+  console.log(this);
+
       const els = App.elements.content;
       els.index.className = "container__content";
       els.cardBox.innerHTML = "content";
@@ -40,6 +43,8 @@ const App = {
        els.index.appendChild(els.cardBox);
     },
     renderFooter() {
+  console.log(this);
+
       const els = App.elements.footer;
       els.index.className = "footer";
       els.footerText.innerHTML = "ふったーです";
