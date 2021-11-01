@@ -49,6 +49,7 @@ const App = {
         item_name.innerHTML = product.name;
         item_description.innerHTML = product.description;
         item_price.innerHTML = `${product.price} 両`
+        item_image.className = product.name;
         item_image.src = product.img;
         item_image.alt = product.name;
         els.cardBox.appendChild(item_name);
