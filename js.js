@@ -32,37 +32,65 @@ const App = {
       els.index.appendChild(els.headerIcon);
     },
     renderContent() {
-  console.log(this);
-  console.log(this);
-        console.log(list.state.item.length);
 
       const els = App.elements.content;
       els.index.className = "container__content";
 
-      for (let i = 0; i<list.state.item.length; i++){
-        const product = list.state.item[i];
-        console.log(product);
+      
+      const makeItem=(item)=>{
+        const card= document.createElement("div");
+        card.className = "card";
+        const goods = item;
         const item_name = document.createElement("p");
         const item_description = document.createElement("p");
         const item_price = document.createElement("p");
         const item_image = document.createElement("img");
-        item_name.innerHTML = product.name;
-        item_description.innerHTML = product.description;
-        item_price.innerHTML = `${product.price} 両`
-        item_image.className = product.name;
-        item_image.src = product.img;
-        item_image.alt = product.name;
-        els.cardBox.appendChild(item_name);
-        els.cardBox.appendChild(item_description);
-        els.cardBox.appendChild(item_price);
-        els.cardBox.appendChild(item_image);
+        item_name.innerHTML = goods.name;
+        item_description.innerHTML = goods.description;
+        item_price.innerHTML = `${goods.price} 両`
+        item_image.className = goods.name;
+        item_image.src = goods.img;
+        item_image.alt = goods.name;
+        card.appendChild(item_name);
+        card.appendChild(item_description);
+        card.appendChild(item_price);
+        card.appendChild(item_image);
+        
+        const buttonArea= document.createElement("div");
+        const buyButton = document.createElement("button");
+        const numberInput = document.createElement("input");
+        numberInput.type="list";
+
+        buyButton.innerHTML = "カゴに追加";
+
+        buttonArea.appendChild(buyButton);
+        buttonArea.appendChild(numberInput);
+        card.appendChild(buttonArea);
+
+        return card;
       }
 
-       App.elements.app.appendChild(els.index);
-       els.index.appendChild(els.cardBox);
+      const makeBotton=()=>{
+        const buttonArea= document.createElement("div");
+        const deleteButton = document.createElement("button");
+        const buyButton = document.createElement("button");
+        buttonArea.appendChild(buyButton);
+        buttonArea.appendChild(deleteButton);
+
+      }
+  
+    for (let i = 0; i<list.state.item.length; i++){
+      const card =makeItem(list.state.item[i]);
+      // const botton=makeBotton();
+      els.cardBox.appendChild(card);
+      // card.appendChild(botton);
+    }
+      App.elements.app.appendChild(els.index);
+      els.index.appendChild(els.cardBox);
+      els.cardBox.className = "cardBox";
+
     },
     renderFooter() {
-  console.log(this);
 
       const els = App.elements.footer;
       els.index.className = "footer";
@@ -78,7 +106,6 @@ const App = {
     content: {
       index: document.createElement("main"),
       cardBox: document.createElement("div"),
-      card: document.createElement("p"),
     },
     header: {
       index: document.createElement("header"),
