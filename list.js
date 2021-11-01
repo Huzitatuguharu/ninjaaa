@@ -3,7 +3,7 @@ const list = {
     item: [
       {
         id: 0,
-        name: "くない",
+        name: "kunai",
         price: 200,
         description: "忍者の活動をサポートする忍具として使用されます",
         stock: 10,
@@ -11,7 +11,7 @@ const list = {
       },
       {
         id: 1,
-        name: "しゅりけん",
+        name: "syuriken",
         price: 500,
         description: "投げてつかいます",
         stock: 5,
@@ -19,7 +19,7 @@ const list = {
       },
       {
         id: 2,
-        name: "まきびし",
+        name: "makibishi",
         price: 10,
         description: "逃げる途中にばら撒くことで追手に怪我を負わせます",
         stock: 300,

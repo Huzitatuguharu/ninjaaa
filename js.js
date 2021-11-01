@@ -36,7 +36,7 @@ const App = {
       const els = App.elements.content;
       els.index.className = "container__content";
 
-      
+
       const makeItem=(item)=>{
         const card= document.createElement("div");
         card.className = "card";
@@ -55,17 +55,27 @@ const App = {
         card.appendChild(item_description);
         card.appendChild(item_price);
         card.appendChild(item_image);
-        
+
         const buttonArea= document.createElement("div");
         const buyButton = document.createElement("button");
+        const numberLabel = document.createElement("label");
+        numberLabel.innerHTML = "個数";
+        numberLabel.htmlFor = goods.name;
+
         const numberInput = document.createElement("input");
-        numberInput.type="list";
+        numberInput.id = goods.name;
+        const form = document.createElement("form");
+        numberInput.type="number";
+        numberInput.min = 0;
+        numberInput.max = goods.stock;
 
         buyButton.innerHTML = "カゴに追加";
 
         buttonArea.appendChild(buyButton);
-        buttonArea.appendChild(numberInput);
-        card.appendChild(buttonArea);
+        form.appendChild(numberLabel);
+        form.appendChild(numberInput);
+        form.appendChild(buttonArea);
+        card.appendChild(form);
 
         return card;
       }
@@ -78,7 +88,7 @@ const App = {
         buttonArea.appendChild(deleteButton);
 
       }
-  
+
     for (let i = 0; i<list.state.item.length; i++){
       const card =makeItem(list.state.item[i]);
       // const botton=makeBotton();
