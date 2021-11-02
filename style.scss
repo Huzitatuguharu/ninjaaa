@@ -644,3 +644,18 @@ img {
   width:33%;
 
 }
+
+input[type="number"] {
+  width: 50px;
+}
+
+// 最初非表示
+.errorText {
+  display: none; 
+}
+// エラーの時のみ表示
+input:invalid + .errorText {
+  display: block;
+  color: red;
+  font-size: 0.9em;
+}

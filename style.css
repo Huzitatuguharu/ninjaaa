@@ -621,4 +621,18 @@ img {
   border-radius: 20px;
   width: 33%;
 }
+
+input[type="number"] {
+  width: 50px;
+}
+
+.errorText {
+  display: none;
+}
+
+input:invalid + .errorText {
+  display: block;
+  color: red;
+  font-size: 0.9em;
+}
 /*# sourceMappingURL=style.css.map */

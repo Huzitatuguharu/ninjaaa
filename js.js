@@ -2,8 +2,6 @@ const App = {
 
   init() {
     console.log("Start the engines");
-  console.log(this);
-  console.log(list);
 
     this.controllers.renderHeader();
     this.controllers.renderContent();
@@ -13,12 +11,14 @@ const App = {
   },
   state: {
     navChild: [{ text: "Button" }, { text: "Accordion" }, { text: "Input" }],
+    count: 0,
+    increment: () => {
+    this.state.count++;
+    }
   },
 
   controllers: {
     renderHeader() {
-      // console.log(list);
-  console.log(this);
 
       const els = App.elements.header;
       els.index.className = "header";
@@ -35,7 +35,6 @@ const App = {
 
       const els = App.elements.content;
       els.index.className = "container__content";
-
 
       const makeItem=(item)=>{
         const card= document.createElement("div");
@@ -55,32 +54,39 @@ const App = {
         card.appendChild(item_description);
         card.appendChild(item_price);
         card.appendChild(item_image);
-
+        
         const buttonArea= document.createElement("div");
         const buyButton = document.createElement("button");
         const numberLabel = document.createElement("label");
         numberLabel.innerHTML = "個数";
         numberLabel.htmlFor = goods.name;
-
-        const numberInput = document.createElement("input");
-        numberInput.id = goods.name;
+        
         const form = document.createElement("form");
+        const numberInput = document.createElement("input");
+        const errorText = document.createElement("p");
+        numberInput.id = goods.name;
+        numberInput.step = 1;
         numberInput.type="number";
         numberInput.min = 0;
         numberInput.max = goods.stock;
+        
+        errorText.innerHTML="整数のみ入力できます"
+        errorText.className = "errorText";
+
 
         buyButton.innerHTML = "カゴに追加";
-
+        
         buttonArea.appendChild(buyButton);
         form.appendChild(numberLabel);
         form.appendChild(numberInput);
+        form.appendChild(errorText);
         form.appendChild(buttonArea);
         card.appendChild(form);
 
         return card;
       }
 
-      const makeBotton=()=>{
+      const addCart=()=>{
         const buttonArea= document.createElement("div");
         const deleteButton = document.createElement("button");
         const buyButton = document.createElement("button");
@@ -93,15 +99,41 @@ const App = {
       const card =makeItem(list.state.item[i]);
       // const botton=makeBotton();
       els.cardBox.appendChild(card);
+      console.log(list.state.item[i].count) ; 
       // card.appendChild(botton);
     }
+
+    const showCart=(item)=>{
+        const cartContent = document.createElement("div");
+        const cartContentText = document.createElement("p");
+        const cartContentCount = document.createElement("p");
+
+        cartContentText.innerHTML=item.name;
+        cartContentCount.innerHTML=`${item.count*item.count}両`;
+
+        cartContent.appendChild(cartContentText);
+        cartContent.appendChild(cartContentCount);
+        console.log(item) 
+        return cartContent;
+    }
+
+    for (let i = 0; i<list.state.item.length; i++){
+      if(list.state.item[i].count >0){
+      const cartContent =showCart(list.state.item[i]);
+      els.cartContentBox.appendChild(cartContent);
+      }
+    }
+
+    
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.cardBox);
       els.cardBox.className = "cardBox";
-
+      console.log(list.state.item[0].count);
+      els.index.appendChild(els.cartContentBox);
     },
-    renderFooter() {
 
+
+    renderFooter() {
       const els = App.elements.footer;
       els.index.className = "footer";
       els.footerText.innerHTML = "ふったーです";
@@ -116,6 +148,7 @@ const App = {
     content: {
       index: document.createElement("main"),
       cardBox: document.createElement("div"),
+      cartContentBox: document.createElement("div"),
     },
     header: {
       index: document.createElement("header"),
@@ -126,11 +159,6 @@ const App = {
       index: document.createElement("footer"),
       footerText: document.createElement("div"),
     },
-    // a: document.createElement("a"),
-    // main: document.createElement("main"),
-    // messageJa: document.createElement("p"),
-    // messageEn: document.createElement("p"),
-    // nav: document.createElement("nav"),
   },
 };
 

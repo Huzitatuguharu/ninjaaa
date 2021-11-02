@@ -8,6 +8,7 @@ const list = {
         description: "忍者の活動をサポートする忍具として使用されます",
         stock: 10,
         img: "./img/kunai.png",
+        count:10
       },
       {
         id: 1,
@@ -16,6 +17,7 @@ const list = {
         description: "投げてつかいます",
         stock: 5,
         img: "./img/syuriken.png",
+        count:0
       },
       {
         id: 2,
@@ -24,9 +26,9 @@ const list = {
         description: "逃げる途中にばら撒くことで追手に怪我を負わせます",
         stock: 300,
         img: "./img/makibishi.png",
+        count:0
       },
     ],
   },
-
-  actions: {},
+  
 };
