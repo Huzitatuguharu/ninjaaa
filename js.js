@@ -55,31 +55,32 @@ const App = {
         item_image.src = goods.img;
         item_image.alt = goods.name;
         card.appendChild(item_name);
+        card.appendChild(item_image);
         card.appendChild(item_description);
         card.appendChild(item_price);
-        card.appendChild(item_image);
         
         const buttonArea= document.createElement("div");
         const buyButton = document.createElement("button");
         const numberLabel = document.createElement("label");
-        numberLabel.innerHTML = "個数";
+        numberLabel.innerHTML = "個数を入力";
         numberLabel.htmlFor = goods.name;
         
         const form = document.createElement("form");
         const numberInput = document.createElement("input");
         const errorText = document.createElement("p");
+        form.className="formArea"
         numberInput.id = goods.name;
         numberInput.step = 1;
         numberInput.type="number";
         numberInput.min = 0;
         numberInput.max = goods.stock;
         
-        errorText.innerHTML="整数のみ入力できます"
+        errorText.innerHTML="エラーです"
         errorText.className = "errorText";
 
 
         buyButton.innerHTML = "カゴに追加";
-        
+        buyButton.className="buyButton";
         buttonArea.appendChild(buyButton);
         form.appendChild(numberLabel);
         form.appendChild(numberInput);

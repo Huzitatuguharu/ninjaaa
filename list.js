@@ -26,7 +26,7 @@ const list = {
         name: "makibishi",
         displayName: "まきびし",
         price: 10,
-        description: "逃げる途中にばら撒くことで追手に怪我を負わせます",
+        description: "逃げる途中にばら撒きます",
         stock: 300,
         img: "./img/makibishi.png",
         count:0

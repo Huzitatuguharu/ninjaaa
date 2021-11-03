@@ -643,8 +643,8 @@ template {
 }
 
 img {
-  width:180px;
-  height:180px;
+  width:130px;
+  height:130px;
   object-fit: contain;
   display: block;
   margin: auto;
@@ -663,15 +663,38 @@ img {
   width: 30%;
   min-height:100%;
   padding: 20px;
+  display: flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.formArea{
+  display: flex;
+  flex-direction:column;
+  
+
+  gap:16px;
 }
 
 .item_name{
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
 }
 
 input[type="number"] {
   width: 50px;
+}
+
+.buyButton{
+  background-color:$color_dark;
+  color:$color_light;
+  border:none;
+  padding:  12px;
+  border-radius: 4px 30px 4px 30px;
+  &:hover{
+  border-radius: 30px;
+   
+  }
 }
 
 // 最初非表示
