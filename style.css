@@ -49,9 +49,9 @@ html {
  * 2. 原則的に文章は禁則処理を行う。
  */
 body {
-  background-color: linear-gradient(118.47deg, #f5fdff 0.61%, #e0f5fa 100%);
+  background-color: #333;
   color: #333;
-  font-family: "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif;
+  font-family: "Zen Maru Gothic", "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif;
   line-height: 1.5;
   min-height: 100%;
   /* 1 */
@@ -577,23 +577,42 @@ template {
   position: sticky;
   left: 0;
   top: 0;
-  background-color: #89c4ff;
+  background-color: #363636;
   padding: 12px;
   border: #333;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   z-index: 99999;
+}
+
+.headerText {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.8rem;
+}
+
+.headerText:first-letter {
+  font-size: 130%;
+}
+
+.material-icons {
+  color: #fff;
 }
 
 .footer {
   bottom: 0;
   left: 0;
   position: fixed;
+  background-color: #363636;
+  color: #fff;
   width: 100%;
-  background-color: #89c4ff;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 12px;
@@ -602,24 +621,35 @@ template {
 img {
   width: 180px;
   height: 180px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
 .cardBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  gap: 50px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 20px;
 }
 
 .card {
-  background-color: #ffd3d3;
+  background-color: white;
   border-radius: 20px;
-  width: 33%;
+  width: 30%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+.item_name {
+  font-size: 28px;
+  font-weight: 700;
 }
 
 input[type="number"] {

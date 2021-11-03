@@ -23,6 +23,7 @@ const App = {
       const els = App.elements.header;
       els.index.className = "header";
       els.headerText.innerHTML = "忍具SHOP";
+      els.headerText.className = "headerText";
 
       els.headerIcon.className = "material-icons";
       els.headerIcon.innerHTML = "shopping_cart";
@@ -44,9 +45,12 @@ const App = {
         const item_description = document.createElement("p");
         const item_price = document.createElement("p");
         const item_image = document.createElement("img");
-        item_name.innerHTML = goods.name;
+        item_name.innerHTML = goods.displayName;
+        item_name.className = "item_name";
+
         item_description.innerHTML = goods.description;
         item_price.innerHTML = `${goods.price} 両`
+
         item_image.className = goods.name;
         item_image.src = goods.img;
         item_image.alt = goods.name;

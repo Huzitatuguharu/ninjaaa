@@ -32,13 +32,13 @@ $color_light: #fafafa !default;
 $color_blue_light: linear-gradient(118.47deg, #f5fdff 0.61%, #e0f5fa 100%);
 
 // 背景色
-$backgroundColor_base: $color_blue_light !default;
+$backgroundColor_base: $color_dark !default;
 
 // テキストカラー
 $fontColor_base: $color_dark !default;
 
 // フォントファミリー
-$fontFamily_sansSerif: 'Helvetica Neue', 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+$fontFamily_sansSerif: 'Zen Maru Gothic','Helvetica Neue', 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
   meiryo, sans-serif !default;
 $fontFamily_mincho: 'Noto Serif JP', serif !default;
 $fontFamily_monospace: Consolas, Menlo, Courier, monospace !default;
@@ -96,7 +96,7 @@ html {
  * 2. 原則的に文章は禁則処理を行う。
  */
 body {
-  background-color: $backgroundColor_base;
+  background-color: $color_dark;
   color: $fontColor_base;
   font-family: $fontFamily_sansSerif;
   line-height: $lineHeight_default;
@@ -607,21 +607,37 @@ template {
   position: sticky;
   left: 0;
   top:0;
-  background-color: #89c4ff;
+  background-color: #363636;
   padding: 12px;
   border: #333;
   display: flex;
+  align-items:baseline;
   justify-content: space-around;
   z-index: 99999;
 }
+.headerText {
+  color:#fff;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.8rem;
+  &:first-letter {
+    font-size: 130%;
 
+  }
+}
+
+.material-icons{
+  color:#fff;
+
+}
 .footer{
   bottom: 0;
   left: 0;
   position: fixed;
+  background-color: #363636;
+  color:#fff;
 
   width: 100%;
-  background-color: #89c4ff;
   justify-content: space-around;
   padding: 12px;
 }
@@ -629,20 +645,29 @@ template {
 img {
   width:180px;
   height:180px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
 .cardBox{
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap:50px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 20px;
 }
 
 .card{
-  background-color: rgb(255, 211, 211);
+  background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  width:33%;
+  width: 30%;
+  min-height:100%;
+  padding: 20px;
+}
 
+.item_name{
+  font-size: 28px;
+  font-weight: 700;
 }
 
 input[type="number"] {
