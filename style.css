@@ -577,9 +577,8 @@ template {
   position: sticky;
   left: 0;
   top: 0;
-  background-color: #363636;
+  background-color: #333;
   padding: 12px;
-  border: #333;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -618,15 +617,6 @@ template {
   padding: 12px;
 }
 
-img {
-  width: 130px;
-  height: 130px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  display: block;
-  margin: auto;
-}
-
 .cardBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -644,7 +634,7 @@ img {
   border-radius: 20px;
   width: 30%;
   min-height: 100%;
-  padding: 20px;
+  padding: 36px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -678,13 +668,16 @@ input[type="number"] {
 .buyButton {
   background-color: #333;
   color: #fafafa;
-  border: none;
+  border: solid 1px #fafafa;
   padding: 12px;
-  border-radius: 4px 30px 4px 30px;
+  border-radius: 30px;
 }
 
 .buyButton:hover {
   border-radius: 30px;
+  background-color: #fafafa;
+  color: #333;
+  border: solid 1px #333;
 }
 
 .errorText {
@@ -695,5 +688,35 @@ input:invalid + .errorText {
   display: block;
   color: red;
   font-size: 0.9em;
+}
+
+.sliderContainer {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 200px;
+}
+
+.slide img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: cover;
+}
+
+.arrowLeft,
+.arrowRight {
+  color: #333;
+  margin: 16px;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

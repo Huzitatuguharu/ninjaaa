@@ -607,9 +607,8 @@ template {
   position: sticky;
   left: 0;
   top:0;
-  background-color: #363636;
+  background-color:$color_dark;
   padding: 12px;
-  border: #333;
   display: flex;
   align-items:baseline;
   justify-content: space-around;
@@ -642,13 +641,6 @@ template {
   padding: 12px;
 }
 
-img {
-  width:130px;
-  height:130px;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-}
 
 .cardBox{
   display: flex;
@@ -662,7 +654,7 @@ img {
   border-radius: 20px;
   width: 30%;
   min-height:100%;
-  padding: 20px;
+  padding: 36px;
   display: flex;
   flex-direction:column;
   gap:16px;
@@ -688,11 +680,15 @@ input[type="number"] {
 .buyButton{
   background-color:$color_dark;
   color:$color_light;
-  border:none;
+  border:solid 1px $color_light;
   padding:  12px;
-  border-radius: 4px 30px 4px 30px;
+  border-radius: 30px;
   &:hover{
   border-radius: 30px;
+  background-color:$color_light;
+  color:$color_dark;
+  border:solid 1px $color_dark;
+  
    
   }
 }
@@ -706,4 +702,28 @@ input:invalid + .errorText {
   display: block;
   color: red;
   font-size: 0.9em;
+}
+
+
+.sliderContainer {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+
+.slide img{
+  width:150px;
+  height:150px;
+  object-fit: contain;
+  margin: cover;
+}
+
+.arrowLeft,
+.arrowRight{
+  color: $color_dark;
+  margin: 16px;
+  &:hover{
+    cursor: pointer;
+  }
 }

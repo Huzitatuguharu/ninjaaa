@@ -5,7 +5,7 @@ const App = {
 
     this.controllers.renderHeader();
     this.controllers.renderContent();
-
+    
     this.controllers.renderFooter();
     console.log("Finished");
   },
@@ -32,30 +32,58 @@ const App = {
       els.index.appendChild(els.headerText);
       els.index.appendChild(els.headerIcon);
     },
+
     renderContent() {
 
       const els = App.elements.content;
       els.index.className = "container__content";
+      // First display img setting
+
 
       const makeItem=(item)=>{
+        const goods = item;
+        let slideIndex = goods.slideIndex;
+        console.log(slideIndex);
         const card= document.createElement("div");
         card.className = "card";
-        const goods = item;
         const item_name = document.createElement("p");
         const item_description = document.createElement("p");
         const item_price = document.createElement("p");
-        const item_image = document.createElement("img");
+        const item_image0 = document.createElement("img");
+        const item_image1 = document.createElement("img");
+        const sliderContainer = document.createElement("div");
+
+        const arrowRight=document.createElement("div");
+        const arrowLeft=document.createElement("div");
+
+        arrowRight.className = "material-icons arrowRight";
+        arrowLeft.className = "material-icons arrowLeft" ;
+        arrowRight.innerHTML = "navigate_next";
+        arrowLeft.innerHTML = "navigate_before";
+        
         item_name.innerHTML = goods.displayName;
         item_name.className = "item_name";
 
         item_description.innerHTML = goods.description;
         item_price.innerHTML = `${goods.price} 両`
 
-        item_image.className = goods.name;
-        item_image.src = goods.img;
-        item_image.alt = goods.name;
+        item_image0.className = "slide";
+        item_image1.className = "slide";
+        sliderContainer.className="sliderContainer";
+
+        item_image0.src = goods.img[0];
+        item_image0.alt = goods.name[0];
+        item_image1.src = goods.img[1];
+        item_image1.alt = goods.name[1];
+        
+        
+        sliderContainer.appendChild(arrowLeft);
+        sliderContainer.appendChild(item_image0);
+        sliderContainer.appendChild(item_image1);
+        sliderContainer.appendChild(arrowRight);
+        
+        card.appendChild(sliderContainer);
         card.appendChild(item_name);
-        card.appendChild(item_image);
         card.appendChild(item_description);
         card.appendChild(item_price);
         
@@ -87,6 +115,27 @@ const App = {
         form.appendChild(errorText);
         form.appendChild(buttonArea);
         card.appendChild(form);
+        console.log(sliderContainer)
+
+        // for(let j=0;j<goods.img.length;j++){
+        //   sliderContainer.style.display = "none";
+        // }
+        
+        item_image0.style.display = "block";
+        item_image1.style.display = "none";
+        arrowLeft.onclick=(()=>{if(item_image0.style.display =="block"){
+          item_image0.style.display = "none";
+        item_image1.style.display = "block";
+        }else{
+        item_image0.style.display = "block";
+        item_image1.style.display = "none";}});
+
+        arrowRight.onclick=(()=>{if(item_image0.style.display =="block"){
+          item_image0.style.display = "none";
+        item_image1.style.display = "block";
+        }else{
+        item_image0.style.display = "block";
+        item_image1.style.display = "none";}});
 
         return card;
       }
@@ -104,7 +153,9 @@ const App = {
       const card =makeItem(list.state.item[i]);
       // const botton=makeBotton();
       els.cardBox.appendChild(card);
-      console.log(list.state.item[i].count) ; 
+      console.log(list.state.item[i].count);
+      // let slideIndex = 0;
+      // showSlides(slideIndex); 
       // card.appendChild(botton);
     }
 
