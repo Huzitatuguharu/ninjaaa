@@ -9,7 +9,7 @@ const list = {
         description: "逃げるときに使います",
         stock: 10,
         img: ["./img/ninja_dougu_kemuridama.png","./img/ninja_kemuridama.png"],
-        count:10,
+        count:0,
         slideIndex : 0,
       },
       {

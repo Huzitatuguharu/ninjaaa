@@ -169,9 +169,16 @@ const App = {
 
         cartContent.appendChild(cartContentText);
         cartContent.appendChild(cartContentCount);
+        cartContent.className="cartContent";
         console.log(item) 
         return cartContent;
     }
+
+    if(list.state.item.reduce((sum, i) => sum + i.count, 0)===0){
+      console.log("aaa")
+
+    }else{
+      console.log("ccc")
 
     for (let i = 0; i<list.state.item.length; i++){
       if(list.state.item[i].count >0){
@@ -179,6 +186,7 @@ const App = {
       els.cartContentBox.appendChild(cartContent);
       }
     }
+  }
 
     
       App.elements.app.appendChild(els.index);

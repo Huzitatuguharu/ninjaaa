@@ -608,10 +608,10 @@ template {
   left: 0;
   top:0;
   background-color:$color_dark;
-  padding: 12px;
   display: flex;
   align-items:baseline;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding:20px 50px;
   z-index: 99999;
 }
 .headerText {
@@ -630,12 +630,11 @@ template {
 
 }
 .footer{
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  background-color: #363636;
+  // bottom: 0;
+  // left: 0;
+  // position: fixed;
+  background-color: $color_dark;
   color:#fff;
-
   width: 100%;
   justify-content: space-around;
   padding: 12px;
@@ -650,9 +649,10 @@ template {
   gap:20px;
 }
 
+.cartContent,
 .card{
   background-color: rgb(255, 255, 255);
-  border-radius: 20px;
+  border-radius: 10px;
   width: 30%;
   min-width: 300px;
   min-height:100%;
@@ -660,6 +660,13 @@ template {
   display: flex;
   flex-direction:column;
   gap:16px;
+}
+
+.cartContent{
+  margin: 50px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 36px;
 }
 
 .formArea{
@@ -685,6 +692,7 @@ input[type="number"] {
   border:solid 1px $color_light;
   padding:  12px;
   border-radius: 30px;
+  transition: all 0.5s 0s ease;
   &:hover{
   border-radius: 30px;
   background-color:$color_light;
@@ -711,14 +719,13 @@ input:invalid + .errorText {
   margin: auto;
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 120px;
 }
 
-.slide img{
-  width:150px;
-  height:150px;
-  object-fit: contain;
-  margin: cover;
+.sliderContainer img{
+  width:100px;
+  height:100px;
+  object-fit: cover;
 }
 
 .arrowLeft,
