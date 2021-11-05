@@ -722,10 +722,17 @@ input:invalid + .errorText {
 .arrowRight {
   color: #333;
   margin: 16px;
+  border-color: #333;
 }
 
 .arrowLeft:hover,
 .arrowRight:hover {
   cursor: pointer;
+  opacity: 0.8;
+}
+
+.toast {
+  background-color: red;
+  color: #89c4ff;
 }
 /*# sourceMappingURL=style.css.map */

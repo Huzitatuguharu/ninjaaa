@@ -5,10 +5,10 @@ const App = {
 
     this.controllers.renderHeader();
     this.controllers.renderContent();
-    
     this.controllers.renderFooter();
     console.log("Finished");
   },
+
   state: {
     navChild: [{ text: "Button" }, { text: "Accordion" }, { text: "Input" }],
     count: 0,
@@ -39,7 +39,6 @@ const App = {
       els.index.className = "container__content";
       // First display img setting
 
-
       const makeItem=(item)=>{
         const goods = item;
         let slideIndex = goods.slideIndex;
@@ -49,17 +48,8 @@ const App = {
         const item_name = document.createElement("p");
         const item_description = document.createElement("p");
         const item_price = document.createElement("p");
-        const item_image0 = document.createElement("img");
-        const item_image1 = document.createElement("img");
-        const sliderContainer = document.createElement("div");
-
-        const arrowRight=document.createElement("div");
-        const arrowLeft=document.createElement("div");
-
-        arrowRight.className = "material-icons arrowRight";
-        arrowLeft.className = "material-icons arrowLeft" ;
-        arrowRight.innerHTML = "navigate_next";
-        arrowLeft.innerHTML = "navigate_before";
+        
+        
         
         item_name.innerHTML = goods.displayName;
         item_name.className = "item_name";
@@ -67,22 +57,6 @@ const App = {
         item_description.innerHTML = goods.description;
         item_price.innerHTML = `${goods.price} 両`
 
-        item_image0.className = "slide";
-        item_image1.className = "slide";
-        sliderContainer.className="sliderContainer";
-
-        item_image0.src = goods.img[0];
-        item_image0.alt = goods.name[0];
-        item_image1.src = goods.img[1];
-        item_image1.alt = goods.name[1];
-        
-        
-        sliderContainer.appendChild(arrowLeft);
-        sliderContainer.appendChild(item_image0);
-        sliderContainer.appendChild(item_image1);
-        sliderContainer.appendChild(arrowRight);
-        
-        card.appendChild(sliderContainer);
         card.appendChild(item_name);
         card.appendChild(item_description);
         card.appendChild(item_price);
@@ -115,27 +89,8 @@ const App = {
         form.appendChild(errorText);
         form.appendChild(buttonArea);
         card.appendChild(form);
-        console.log(sliderContainer)
 
-        // for(let j=0;j<goods.img.length;j++){
-        //   sliderContainer.style.display = "none";
-        // }
-        
-        item_image0.style.display = "block";
-        item_image1.style.display = "none";
-        arrowLeft.onclick=(()=>{if(item_image0.style.display =="block"){
-          item_image0.style.display = "none";
-        item_image1.style.display = "block";
-        }else{
-        item_image0.style.display = "block";
-        item_image1.style.display = "none";}});
-
-        arrowRight.onclick=(()=>{if(item_image0.style.display =="block"){
-          item_image0.style.display = "none";
-        item_image1.style.display = "block";
-        }else{
-        item_image0.style.display = "block";
-        item_image1.style.display = "none";}});
+       
 
         return card;
       }
@@ -152,8 +107,12 @@ const App = {
     for (let i = 0; i<list.state.item.length; i++){
       const card =makeItem(list.state.item[i]);
       // const botton=makeBotton();
+      console.log(this);
+      const sliderContainer=this.showSlides(list.state.item[i]);
+      card.appendChild(sliderContainer);
       els.cardBox.appendChild(card);
-      console.log(list.state.item[i].count);
+
+
       // let slideIndex = 0;
       // showSlides(slideIndex); 
       // card.appendChild(botton);
@@ -170,7 +129,6 @@ const App = {
         cartContent.appendChild(cartContentText);
         cartContent.appendChild(cartContentCount);
         cartContent.className="cartContent";
-        console.log(item) 
         return cartContent;
     }
 
@@ -192,9 +150,87 @@ const App = {
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.cardBox);
       els.cardBox.className = "cardBox";
-      console.log(list.state.item[0].count);
       els.index.appendChild(els.cartContentBox);
     },
+    
+    
+    
+    showSlides(item) {
+      const imgs = [];
+
+      const item_image0 = document.createElement("img");
+      const item_image1 = document.createElement("img");
+      const item_image2 = document.createElement("img");
+      const sliderContainer = document.createElement("div");
+      const arrowRight=document.createElement("div");
+      const arrowLeft=document.createElement("div");
+
+      imgs.push(item_image0,item_image1,item_image2);
+
+      item_image0.className = `slide_${item.name}`;
+      item_image1.className = `slide_${item.name}`;
+      item_image2.className = `slide_${item.name}`;
+      sliderContainer.className="sliderContainer";
+
+      item_image0.src = item.img[0];
+      item_image0.alt = item.name[0];
+      item_image1.src = item.img[1];
+      item_image1.alt = item.name[1];
+      item_image2.alt = item.name[2];
+      item_image2.src = item.img[2];
+      item_image0.style.display = "block";
+      item_image1.style.display = "none";
+      item_image2.style.display = "none";
+      
+      sliderContainer.appendChild(arrowLeft);
+      sliderContainer.appendChild(item_image0);
+      sliderContainer.appendChild(item_image1);
+      sliderContainer.appendChild(item_image2);
+      sliderContainer.appendChild(arrowRight);
+
+      arrowRight.className = "material-icons arrowRight";
+      arrowLeft.className = "material-icons arrowLeft" ;
+      arrowRight.innerHTML = "navigate_next";
+      arrowLeft.innerHTML = "navigate_before";
+
+      arrowLeft.onclick=(()=>plusSlides(-1));
+      arrowRight.onclick=(()=>plusSlides(1));
+      
+      function plusSlides(n) {
+        showSlides(item.slideIndex += n);
+      }
+      
+      function showSlides(n) {
+      // let dots = document.getElementsByClassName("blogSlider__dots--dot");
+      if (n > imgs.length-1) {
+        item.slideIndex = 0;
+      }
+      if (n < 0) {
+        item.slideIndex = imgs.length-1
+      }
+      for (let i = 0; i < imgs.length; i++) {
+        imgs[i].style.display = "none";
+      }
+      console.log(imgs);
+      // for (i = 0; i < dots.length; i++) {
+      //   dots[i].className = dots[i].className.replace(" active", "");
+      // }
+      imgs[item.slideIndex].style.display = "block";
+      // dots[slideIndex].className += " active";
+      }
+    
+    return sliderContainer;
+  
+  },
+    
+    
+    plusSlides (n) {
+      this.showSlides(slideIndex += n);
+    },
+    currentSlide(n) {
+      showSlides(slideIndex = n);
+    },
+    
 
 
     renderFooter() {

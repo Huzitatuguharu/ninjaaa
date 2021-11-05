@@ -732,7 +732,16 @@ input:invalid + .errorText {
 .arrowRight{
   color: $color_dark;
   margin: 16px;
+  border-color: $color_dark;
   &:hover{
     cursor: pointer;
+  opacity: 0.8;
+
   }
+}
+
+.toast{
+  background-color:red;
+  color: #89c4ff;
+  
 }
