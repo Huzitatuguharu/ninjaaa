@@ -10,11 +10,9 @@ const App = {
   },
 
   state: {
-    navChild: [{ text: "Button" }, { text: "Accordion" }, { text: "Input" }],
-    count: 0,
-    increment: () => {
-    this.state.count++;
-    }
+
+    usercurt: 0,
+    
   },
 
   controllers: {
@@ -63,44 +61,46 @@ const App = {
         
         const buttonArea= document.createElement("div");
         const buyButton = document.createElement("button");
-        const numberLabel = document.createElement("label");
-        numberLabel.innerHTML = "個数を入力";
-        numberLabel.htmlFor = goods.name;
+        // const numberLabel = document.createElement("label");
+        // numberLabel.innerHTML = "個数を入力";
+        // numberLabel.htmlFor = goods.name;
         
         const form = document.createElement("form");
-        const numberInput = document.createElement("input");
-        const errorText = document.createElement("p");
+        // const numberInput = document.createElement("input");
+        // const errorText = document.createElement("p");
         form.className="formArea"
-        numberInput.id = goods.name;
-        numberInput.step = 1;
-        numberInput.type="number";
-        numberInput.min = 0;
-        numberInput.max = goods.stock;
+        // numberInput.id = goods.name;
+        // numberInput.step = 1;
+        // numberInput.type="number";
+        // numberInput.min = 0;
+        // numberInput.max = goods.stock;
         
-        errorText.innerHTML="エラーです"
-        errorText.className = "errorText";
+        // errorText.innerHTML="エラーです"
+        // errorText.className = "errorText";
 
 
         buyButton.innerHTML = "カゴに追加";
+        buyButton.name = item.name;
+        buyButton.value = 1;
         buyButton.className="buyButton";
+        console.log(addCart)
+
+        buyButton.onclick=addCart;
         buttonArea.appendChild(buyButton);
-        form.appendChild(numberLabel);
-        form.appendChild(numberInput);
-        form.appendChild(errorText);
+        // form.appendChild(numberLabel);
+        // form.appendChild(numberInput);
+        // form.appendChild(errorText);
         form.appendChild(buttonArea);
         card.appendChild(form);
 
        
+        console.log(list.state.usercurt)
 
         return card;
       }
 
       const addCart=()=>{
-        const buttonArea= document.createElement("div");
-        const deleteButton = document.createElement("button");
-        const buyButton = document.createElement("button");
-        buttonArea.appendChild(buyButton);
-        buttonArea.appendChild(deleteButton);
+        
 
       }
 
