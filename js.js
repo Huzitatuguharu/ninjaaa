@@ -6,12 +6,15 @@ const App = {
     this.controllers.renderHeader();
     this.controllers.renderContent();
     this.controllers.renderFooter();
+
     console.log("Finished");
   },
 
   state: {
 
-    usercurt: 0,
+    usercart: [{
+
+    }],
     
   },
 
@@ -23,12 +26,15 @@ const App = {
       els.headerText.innerHTML = "忍具SHOP";
       els.headerText.className = "headerText";
 
-      els.headerIcon.className = "material-icons";
-      els.headerIcon.innerHTML = "shopping_cart";
+      els.headerCart.className = "material-icons cart";
+      els.headerCart.innerHTML = "shopping_cart";
+
+      els.cartIcon.className = "cartIcon";
 
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.headerText);
-      els.index.appendChild(els.headerIcon);
+      els.index.appendChild(els.headerCart);
+      els.headerCart.appendChild(els.cartIcon);
     },
 
     renderContent() {
@@ -80,8 +86,8 @@ const App = {
 
 
         buyButton.innerHTML = "カゴに追加";
-        buyButton.name = item.name;
-        buyButton.value = 1;
+        buyButton.id = item.name;
+        buyButton.value = goods.price;
         buyButton.className="buyButton";
         console.log(addCart)
 
@@ -99,9 +105,15 @@ const App = {
         return card;
       }
 
-      const addCart=()=>{
+      const addCart=(e)=>{
+        let name=e.target.id
+        let price=e.target.value
+        console.log(name);
+        App.state.usercart.push[name];
+        console.log("ka-to",App.state.usercart);
+        localStorage.setItem("list",JSON.stringify({"name":name,"price":price}));
+        App.elements.header.cartIcon.classList.add("show");
         
-
       }
 
     for (let i = 0; i<list.state.item.length; i++){
@@ -218,6 +230,7 @@ const App = {
       imgs[item.slideIndex].style.display = "block";
       // dots[slideIndex].className += " active";
       }
+      
     
     return sliderContainer;
   
@@ -253,7 +266,8 @@ const App = {
     header: {
       index: document.createElement("header"),
       headerText: document.createElement("div"),
-      headerIcon: document.createElement("span"),
+      headerCart: document.createElement("div"),
+      cartIcon:document.createElement("span"),
     },
     footer: {
       index: document.createElement("footer"),
