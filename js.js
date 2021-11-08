@@ -35,6 +35,14 @@ const App = {
       els.index.appendChild(els.headerText);
       els.index.appendChild(els.headerCart);
       els.headerCart.appendChild(els.cartIcon);
+
+      if(localStorage.hasOwnProperty('list')) {
+        console.log('このキーは存在しています');
+        console.log(els.cartIcon);
+        els.cartIcon.style.display="block";
+      }else {
+      els.cartIcon.style.display="none";
+    }
     },
 
     renderContent() {
@@ -99,7 +107,7 @@ const App = {
         form.appendChild(buttonArea);
         card.appendChild(form);
 
-       
+      
         console.log(list.state.usercurt)
 
         return card;
@@ -112,7 +120,6 @@ const App = {
         App.state.usercart.push[name];
         console.log("ka-to",App.state.usercart);
         localStorage.setItem("list",JSON.stringify({"name":name,"price":price}));
-        App.elements.header.cartIcon.classList.add("show");
         
       }
 
