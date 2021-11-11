@@ -611,7 +611,7 @@ template {
   display: flex;
   align-items:baseline;
   justify-content: space-between;
-  padding:15px 50px;
+  padding:15px 70px;
   z-index: 99999;
 }
 .headerText {
@@ -649,9 +649,9 @@ template {
 
 }
 .footer{
-  // bottom: 0;
-  // left: 0;
-  // position: fixed;
+  bottom: 0;
+  left: 0;
+  position: fixed;
   background-color: $color_dark;
   color:#fff;
   width: 100%;
@@ -751,12 +751,21 @@ input:invalid + .errorText {
 
 .arrowLeft,
 .arrowRight{
-  color: $color_dark;
+  color: $color_light;
+   background-color:$color_dark;
+  border-radius: 50%;
   margin: 16px;
-  border-color: $color_dark;
+  transition: all 0.3s 0s ease;
+  border:solid 1px $color_light;
+
+
+  &:focus,
   &:hover{
     cursor: pointer;
-  opacity: 0.8;
+    color: $color_dark;
+    background-color:$color_light;
+    border-radius: 50%;
+  border:solid 1px $color_dark;
 
   }
 }
