@@ -37,8 +37,6 @@ const App = {
       els.headerCart.appendChild(els.cartIcon);
 
       if(localStorage.hasOwnProperty('list')) {
-        console.log('このキーは存在しています');
-        console.log(els.cartIcon);
         els.cartIcon.style.display="block";
       }else {
       els.cartIcon.style.display="none";
@@ -130,13 +128,9 @@ const App = {
       const sliderContainer=this.showSlides(list.state.item[i]);
       card.appendChild(sliderContainer);
       els.cardBox.appendChild(card);
-
-
-      // let slideIndex = 0;
-      // showSlides(slideIndex); 
-      // card.appendChild(botton);
     }
 
+   
     const showCart=(item)=>{
         const cartContent = document.createElement("div");
         const cartContentText = document.createElement("p");
@@ -150,6 +144,17 @@ const App = {
         cartContent.className="cartContent";
         return cartContent;
     }
+    let array = [];
+    if(localStorage.getItem('list') !== null){
+      array = JSON.parse( localStorage.getItem('list') );
+      showCart(array);
+      console.log(array)
+      const cartContent =showCart(array);
+      els.cartContentBox.appendChild(cartContent);
+
+    }else {
+      console.log("ccc")
+  }
 
     if(list.state.item.reduce((sum, i) => sum + i.count, 0)===0){
       console.log("aaa")

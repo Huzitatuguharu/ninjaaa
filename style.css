@@ -610,7 +610,7 @@ template {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: violet;
+  background-color: #DB3F45;
   display: none;
   border-radius: 50%;
   z-index: 10;
