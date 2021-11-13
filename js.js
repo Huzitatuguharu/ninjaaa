@@ -12,9 +12,7 @@ const App = {
 
   state: {
 
-    usercart: [{
-
-    }],
+    userCart: [],
     
   },
 
@@ -112,13 +110,8 @@ const App = {
       }
 
       const addCart=(e)=>{
-        let name=e.target.id
-        let price=e.target.value
-        console.log(name);
-        App.state.usercart.push[name];
-        console.log("ka-to",App.state.usercart);
-        localStorage.setItem("list",JSON.stringify({"name":name,"price":price}));
-        
+        App.state.userCart.push({"name":e.target.id,"price":e.target.value});
+        localStorage.setItem("list",JSON.stringify(App.state.userCart));
       }
 
     for (let i = 0; i<list.state.item.length; i++){
@@ -132,24 +125,28 @@ const App = {
 
    
     const showCart=(item)=>{
-        const cartContent = document.createElement("div");
+      console.log("aaaaaaa", App.state.userCart);
+      const cartContent = document.createElement("div");
+      for(let i=0;i<item.length-1;i++){
         const cartContentText = document.createElement("p");
         const cartContentCount = document.createElement("p");
 
-        cartContentText.innerHTML=item.name;
-        cartContentCount.innerHTML=`${item.count*item.count}両`;
+        cartContentText.innerHTML=item[i].name;
+        // cartContentCount.innerHTML=`${item.count*item.count}両`;
+        cartContentCount.innerHTML=`${item[i].price}両`;
 
         cartContent.appendChild(cartContentText);
         cartContent.appendChild(cartContentCount);
         cartContent.className="cartContent";
+      }
         return cartContent;
+
     }
-    let array = [];
     if(localStorage.getItem('list') !== null){
-      array = JSON.parse( localStorage.getItem('list') );
-      showCart(array);
-      console.log(array)
-      const cartContent =showCart(array);
+      App.state.userCart = JSON.parse( localStorage.getItem('list') );
+      showCart(App.state.userCart);
+      console.log(App.state.userCart )
+      const cartContent =showCart(App.state.userCart );
       els.cartContentBox.appendChild(cartContent);
 
     }else {
