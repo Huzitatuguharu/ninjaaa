@@ -29,10 +29,7 @@ const App = {
       els.headerCart.innerHTML = "shopping_cart";
 
       els.cartIcon.className = "cartIcon";
-      els.headerCart.onclick=(()=>App.controllers.cartmodal());
-
-
-      
+      els.headerCart.onclick=(()=>console.log(1));
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.headerText);
       els.index.appendChild(els.headerCart);
@@ -134,9 +131,11 @@ const App = {
    
     const showCart=(item)=>{
       const cartContent = document.createElement("div");
-      for(let i=0;i<item.length-1;i++){
+      for(let i=0;i<item.length;i++){
         const cartContentText = document.createElement("p");
         const cartContentCount = document.createElement("p");
+
+        
         cartContentText.innerHTML=item[i].name;
         // cartContentCount.innerHTML=`${item.count*item.count}両`;
         cartContentCount.innerHTML=`${item[i].price}両`;
@@ -148,7 +147,16 @@ const App = {
         return cartContent;
 
     }
- 
+
+    if(localStorage.getItem('list') !== null){
+      App.state.userCart = JSON.parse( localStorage.getItem('list') );
+      showCart(App.state.userCart);
+      const cartContent =showCart(App.state.userCart );
+      els.cartContentBox.appendChild(cartContent);
+
+    }else {
+      console.log("ccc")
+  }
 
    
 
