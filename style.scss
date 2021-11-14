@@ -627,6 +627,12 @@ template {
 
 .cart{
   position: relative;
+  &:focus,
+  &:hover{
+    cursor: pointer;
+    opacity: 0.6;
+
+  }
 }
 
 .cartIcon{

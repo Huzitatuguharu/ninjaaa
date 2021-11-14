@@ -13,6 +13,7 @@ const App = {
   state: {
 
     userCart: [],
+    result: [],
     
   },
 
@@ -28,7 +29,10 @@ const App = {
       els.headerCart.innerHTML = "shopping_cart";
 
       els.cartIcon.className = "cartIcon";
+      els.headerCart.onclick=(()=>App.controllers.cartmodal());
 
+
+      
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.headerText);
       els.index.appendChild(els.headerCart);
@@ -93,8 +97,6 @@ const App = {
         buyButton.id = item.name;
         buyButton.value = goods.price;
         buyButton.className="buyButton";
-        console.log(addCart)
-
         buyButton.onclick=addCart;
         buttonArea.appendChild(buyButton);
         // form.appendChild(numberLabel);
@@ -110,14 +112,20 @@ const App = {
       }
 
       const addCart=(e)=>{
-        App.state.userCart.push({"name":e.target.id,"price":e.target.value});
-        localStorage.setItem("list",JSON.stringify(App.state.userCart));
+
+        App.state.result = App.state.userCart.find((array) => array.name === e.target.id);
+        if (App.state.result) {
+        return;
+          
+        }else{
+          App.state.userCart.push({"name":e.target.id,"price":e.target.value});
+          localStorage.setItem("list",JSON.stringify(App.state.userCart));
+        }
       }
+      console.log(App.state.result);
 
     for (let i = 0; i<list.state.item.length; i++){
       const card =makeItem(list.state.item[i]);
-      // const botton=makeBotton();
-      console.log(this);
       const sliderContainer=this.showSlides(list.state.item[i]);
       card.appendChild(sliderContainer);
       els.cardBox.appendChild(card);
@@ -125,12 +133,10 @@ const App = {
 
    
     const showCart=(item)=>{
-      console.log("aaaaaaa", App.state.userCart);
       const cartContent = document.createElement("div");
       for(let i=0;i<item.length-1;i++){
         const cartContentText = document.createElement("p");
         const cartContentCount = document.createElement("p");
-
         cartContentText.innerHTML=item[i].name;
         // cartContentCount.innerHTML=`${item.count*item.count}両`;
         cartContentCount.innerHTML=`${item[i].price}両`;
@@ -142,22 +148,13 @@ const App = {
         return cartContent;
 
     }
-    if(localStorage.getItem('list') !== null){
-      App.state.userCart = JSON.parse( localStorage.getItem('list') );
-      showCart(App.state.userCart);
-      console.log(App.state.userCart )
-      const cartContent =showCart(App.state.userCart );
-      els.cartContentBox.appendChild(cartContent);
+ 
 
-    }else {
-      console.log("ccc")
-  }
+   
 
     if(list.state.item.reduce((sum, i) => sum + i.count, 0)===0){
-      console.log("aaa")
 
     }else{
-      console.log("ccc")
 
     for (let i = 0; i<list.state.item.length; i++){
       if(list.state.item[i].count >0){
@@ -166,6 +163,8 @@ const App = {
       }
     }
   }
+
+  
 
     
       App.elements.app.appendChild(els.index);

@@ -606,6 +606,11 @@ template {
   position: relative;
 }
 
+.cart:focus, .cart:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .cartIcon {
   position: absolute;
   width: 12px;
