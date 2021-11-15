@@ -1,0 +1,78 @@
+
+
+  
+  .btn-example {
+      display: inline-block;
+      font-weight: 400;
+      text-align: left;
+      user-select: none;
+      padding: .375rem .75rem;
+      border-radius: .25rem;
+      color: #FFF;
+      background-color: #007bff;
+      border-color: #007bff;
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+    }
+  }
+  
+  
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 8887;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    
+    background-color: rgba(0,0,0,0.9);
+    
+    transition: all 1s ease-in-out;
+  
+    // Modal Content/Box
+    &-content {
+      background: #FFF;
+      margin: 10vh auto;
+      overflow-y: auto;
+      padding: 20px;
+      width: 90%;
+      
+    }
+  
+    &-top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    // Close button
+    &-close {
+      color: red;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: 100;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  
+    &-title {
+      color: #FFF;
+    }
+  }
+  
+  @media (min-width: 1366px) {
+    .modal-content {
+      margin: 10vh auto;
+      padding: 20px;
+      width: 30%;
+    }
+  }
+  

@@ -10,14 +10,83 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./modal.css" />
   <link rel="stylesheet" href="./style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
 <body>
-  <div id="app">
+  <div class="container">
 
+    <h1 style="color: #f6f7f9;">Multiple Modals with Vanilla JS</h1>
+    <br>
+    <button class="modal-toggle btn-example" data-modal="modalOne">
+      Modal One
+   </button>
+  
+  <button class="modal-toggle btn-example" data-modal="modalTwo">
+      Modal Two
+   </button>
   </div>
+  
+  <div id="modalOne" class="modal">
+     <div class="modal-content">
+       <div class="modal-top">
+         <span class="modal-close">&times;</span>
+        </div>
+       <div class="modal-container">
+         <img class="img" src="https://cdn.dribbble.com/users/1166566/screenshots/4285001/family2.jpg" alt="">
+         <h3>This a modal one</h3>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         </p>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         </p>
+         <br>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta minus distinctio quas vel? Assumenda quae architecto cupiditate, molestiae laudantium eos.
+         </p>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         </p>
+         <br>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta minus distinctio quas vel? Assumenda quae architecto cupiditate, molestiae laudantium eos.
+         </p>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         </p>
+         <br>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta minus distinctio quas vel? Assumenda quae architecto cupiditate, molestiae laudantium eos.
+         </p>
+       </div>
+     </div>
+  </div>
+  
+  <div id="modalTwo" class="modal">
+     <div class="modal-content">
+       <div class="modal-top">
+         <span class="modal-close">&times;</span>
+        </div>
+       <div class="modal-container">
+         <h3>This a modal one</h3>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         </p>
+         <br>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta minus distinctio quas vel? Assumenda quae architecto cupiditate, molestiae laudantium eos.
+         </p>
+       </div>
+     </div>
+  </div>
+  
+  <div id="app">
+  </div>
+  
+  <script src="modal.js"></script>
   <script src="list.js"></script>
   <script src="cart.js"></script>
   <script src="js.js"></script>

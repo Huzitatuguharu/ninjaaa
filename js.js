@@ -2,7 +2,7 @@ const App = {
 
   init() {
     console.log("Start the engines");
-
+    this.modal = new Modal();
     this.controllers.renderHeader();
     this.controllers.renderContent();
     this.controllers.renderFooter();
