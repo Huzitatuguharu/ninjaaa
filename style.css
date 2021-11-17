@@ -632,9 +632,6 @@ template {
 }
 
 .footer {
-  bottom: 0;
-  left: 0;
-  position: fixed;
   background-color: #333;
   color: #fff;
   width: 100%;

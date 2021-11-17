@@ -1,3 +1,8 @@
+@charset "UTF-8";
+[class^=”modal”] div {
+  color: violet;
+}
+
 button {
   background: transparent;
   border: 0;
