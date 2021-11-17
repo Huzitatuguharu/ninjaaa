@@ -1,8 +1,9 @@
 class Modal {
     constructor() {
-        console.log(this);
+        
         this.openModalButtons = document.createElement("button");
-        this.openModalButtons.classList.add('visible');
+        this.openModalButtons.classList.add('openModal');
+        this.openModalButtons.onclick=(()=>this.modalContainer.classList.add('visible'));
 
         // classList.remove('visible');
 
@@ -16,9 +17,9 @@ class Modal {
         this.modalHeader.className = "modalHeader";
         this.modalHeader.innerHTML='カートの中身';
 
-        this.modalTitle = document.createElement("div");
-        this.modalTitle.className = "modalTitle";
-        this.modalTitle.innerHTML = "modalTitle";
+        // this.modalTitle = document.createElement("div");
+        // this.modalTitle.className = "modalTitle";
+        // this.modalTitle.innerHTML = "modalTitle";
         
         this.modalBody = document.createElement("div");
         this.modalBody.className = "modalBody";
@@ -34,15 +35,17 @@ class Modal {
         this.cancelButton = document.createElement("button");
         this.cancelButton.className = "cancelButton";
         this.cancelButton.innerHTML = "閉じる";
+        this.cancelButton.onclick=(()=>this.modalContainer.classList.remove('visible'));
+
 
         this.modalFotter.appendChild(this.cancelButton);
         this.modalFotter.appendChild(this.buyButton);
         
-        this.modalContainer.appendChild(this.modalHeader);
         this.modalContainer.appendChild(this.modalContent);
-        this.modalContainer.appendChild(this.modalFotter);
-        this.modalContent.appendChild(this.modalTitle);
+        this.modalContent.appendChild(this.modalHeader);
+        // this.modalContent.appendChild(this.modalTitle);
         this.modalContent.appendChild(this.modalBody);
+        this.modalContent.appendChild(this.modalFotter);
 
         window.onclick = function(event) {
             if (event.target.className === "modalContainer") {
@@ -50,24 +53,22 @@ class Modal {
             }
         }
         
-        const openModalButtons = document.querySelectorAll('.open-modal'),
-              modal = document.querySelector('.modal'),
-              closeModalButtons = document.querySelectorAll('.close-modal');
-        openModalButtons.forEach(openBtn => {
-          openBtn.addEventListener('click', openModal)
-        });
+        // const openModalButtons = document.querySelectorAll('.open-modal'),
+        //       modal = document.querySelector('.modal'),
+        //       closeModalButtons = document.querySelectorAll('.close-modal');
+        // openModalButtons.forEach(openBtn => {
+        //   openBtn.addEventListener('click', openModal)
+        // });
         
-        closeModalButtons.forEach(closeBtn => {
-          closeBtn.addEventListener('click', closeModal)
-        });
+        // closeModalButtons.forEach(closeBtn => {
+        //   closeBtn.addEventListener('click', closeModal)
+        // });
         
-        function openModal() {
-          modal.classList.add('visible');
-        }
-        
-        function closeModal() {
-          modal.classList.remove('visible');
-        }
+        // function closeModal() {
+        //   modal.classList.remove('visible');
+        // }
+
+        document.body.appendChild(this.openModalButtons);
         document.body.appendChild(this.modalContainer);
     }
 }

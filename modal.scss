@@ -17,7 +17,7 @@ button {
     color: #111;
   }
 
-  &.open-modal {
+  &.openModal {
     background: #000;
     border-radius: 5px;
     color: #fff;
@@ -28,7 +28,7 @@ button {
 }
 
 /* Modal styles */
-.modal {
+.modalContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ button {
     position: fixed;
   }
 
-  .modal-content {
+  .modalContent {
     background: #fff;
     border-radius: 5px;
     max-width: 600px;
@@ -58,7 +58,7 @@ button {
     z-index: 1000;
   }
 
-  .modal-header {
+  .modalHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,11 +79,11 @@ button {
     }
   }
 
-  .modal-body {
+  .modalBody {
     padding: 1.5rem;
   }
 
-  .modal-footer {
+  .modalFotter {
     border-top: 1px solid #ccc;
     padding: 1rem;
     text-align: right;
@@ -93,7 +93,7 @@ button {
     opacity: 1;
     visibility: visible;
 
-    .modal-content {
+    .modalContent {
       top: 25%;
     }
   }
