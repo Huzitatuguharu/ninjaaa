@@ -1,7 +1,7 @@
 
-[class^=”modal”] div{
-  color:violet;
-}
+// [class^=”modal”] div{
+//   color:violet;
+// }
 button {
   background: transparent;
   border: 0;
@@ -41,7 +41,7 @@ button {
   opacity: 0;
   transition: all 0.3s ease;
 
-  .modal-backdrop {
+  .modalCover {
     background: rgba(#000, 0.7);
     height: 100%;
     width: 100%;

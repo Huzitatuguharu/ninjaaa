@@ -1,8 +1,3 @@
-@charset "UTF-8";
-[class^=”modal”] div {
-  color: violet;
-}
-
 button {
   background: transparent;
   border: 0;
@@ -50,7 +45,7 @@ button.openModal {
   transition: all 0.3s ease;
 }
 
-.modalContainer .modal-backdrop {
+.modalContainer .modalCover {
   background: rgba(0, 0, 0, 0.7);
   height: 100%;
   width: 100%;

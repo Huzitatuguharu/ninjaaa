@@ -17,9 +17,9 @@ class Modal {
         this.modalHeader.className = "modalHeader";
         this.modalHeader.innerHTML='カートの中身';
 
-        // this.modalTitle = document.createElement("div");
-        // this.modalTitle.className = "modalTitle";
-        // this.modalTitle.innerHTML = "modalTitle";
+        this.modalCover = document.createElement("span");
+        this.modalCover.className = "modalCover";
+        this.modalCover.onclick=(()=>this.modalContainer.classList.remove('visible'));
         
         this.modalBody = document.createElement("div");
         this.modalBody.className = "modalBody";
@@ -42,8 +42,8 @@ class Modal {
         this.modalFotter.appendChild(this.buyButton);
         
         this.modalContainer.appendChild(this.modalContent);
+        this.modalContainer.appendChild(this.modalCover);
         this.modalContent.appendChild(this.modalHeader);
-        // this.modalContent.appendChild(this.modalTitle);
         this.modalContent.appendChild(this.modalBody);
         this.modalContent.appendChild(this.modalFotter);
 
@@ -60,13 +60,8 @@ class Modal {
         //   openBtn.addEventListener('click', openModal)
         // });
         
-        // closeModalButtons.forEach(closeBtn => {
-        //   closeBtn.addEventListener('click', closeModal)
-        // });
         
-        // function closeModal() {
-        //   modal.classList.remove('visible');
-        // }
+       
 
         document.body.appendChild(this.openModalButtons);
         document.body.appendChild(this.modalContainer);
