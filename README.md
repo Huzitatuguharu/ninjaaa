@@ -1,6 +1,3 @@
-#ninjaaaa
-
-
 I use only VanillaJS 
 
 **No libraries** are used for carousels or modals.
