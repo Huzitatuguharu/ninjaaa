@@ -269,7 +269,7 @@ const App = {
     renderFooter() {
       const els = App.elements.footer;
       els.index.className = "footer";
-      els.footerText.innerHTML = "ふったーです";
+      // els.footerText.innerHTML = "ふったーです";
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.footerText);
     },
