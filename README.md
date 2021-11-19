@@ -3,6 +3,6 @@ I use only VanillaJS
 **No libraries** are used for carousels or modals.
 This is just to understand the basics.
 
-<div id="app"></div>
+`<div id="app"></div>`
 
-The DOM is created in VanillaJS https://github.com/Huzitatuguharu/vanilla_unko
+The DOM is created in VanillaJS
