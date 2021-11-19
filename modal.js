@@ -1,12 +1,5 @@
 class Modal {
     constructor() {
-        
-        this.openModalButtons = document.createElement("button");
-        this.openModalButtons.classList.add('openModal');
-        this.openModalButtons.onclick=(()=>this.modalContainer.classList.add('visible'));
-
-        // classList.remove('visible');
-
         this.modalContainer = document.createElement("div");
         this.modalContainer.className = "modalContainer";
         
@@ -63,7 +56,6 @@ class Modal {
         
        
 
-        document.body.appendChild(this.openModalButtons);
         document.body.appendChild(this.modalContainer);
     }
 }

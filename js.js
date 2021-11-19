@@ -6,7 +6,9 @@ const App = {
     this.controllers.renderHeader();
     this.controllers.renderContent();
     this.controllers.renderFooter();
-
+    console.log(this.modalContainer);
+    
+    App.elements.header.headerCart.onclick=(()=>this.modal.modalContainer.classList.add('visible'));
     console.log("Finished");
   },
 
@@ -27,9 +29,11 @@ const App = {
 
       els.headerCart.className = "material-icons cart";
       els.headerCart.innerHTML = "shopping_cart";
-
+      // document.body.appendChild(this.openModalButtons);
+      // this.openModalButtons = document.createElement("button");
+      // this.openModalButtons.classList.add('openModal');
+      console.log(this)
       els.cartIcon.className = "cartIcon";
-      els.headerCart.onclick=(()=>console.log(1));
       App.elements.app.appendChild(els.index);
       els.index.appendChild(els.headerText);
       els.index.appendChild(els.headerCart);
