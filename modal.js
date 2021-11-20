@@ -1,62 +1,61 @@
 class Modal {
-    constructor() {
-        this.modalContainer = document.createElement("div");
-        this.modalContainer.className = "modalContainer";
-        
-        this.modalContent = document.createElement("div");
-        this.modalContent.className = "modalContent";
+	constructor() {
+		this.modalContainer = document.createElement("div");
+		this.modalContainer.className = "modalContainer";
 
-        this.modalHeader = document.createElement("div");
-        this.modalHeader.className = "modalHeader";
-        this.modalHeader.innerHTML='カートの中身';
+		this.modalContent = document.createElement("div");
+		this.modalContent.className = "modalContent";
 
-        this.modalCover = document.createElement("span");
-        this.modalCover.className = "modalCover";
-        this.modalCover.onclick=(()=>this.modalContainer.classList.remove('visible'));
-        
-        this.modalBody = document.createElement("div");
-        this.modalBody.className = "modalBody";
-        this.modalBody.innerHTML = "modalBody";
+		this.modalHeader = document.createElement("div");
+		this.modalHeader.className = "modalHeader";
+		this.modalHeader.innerHTML = 'カートの中身';
 
-        this.modalFotter = document.createElement("div");
-        this.modalFotter.className = "modalFotter";
-        
-        this.buyButton = document.createElement("button");
-        this.buyButton.className = "buyButton";
-        this.buyButton.innerHTML = "購入する";
-        
-        this.cancelButton = document.createElement("button");
-        this.cancelButton.className = "cancelButton";
-        this.cancelButton.innerHTML = "閉じる";
-        this.cancelButton.onclick=(()=>this.modalContainer.classList.remove('visible'));
+		this.modalCover = document.createElement("span");
+		this.modalCover.className = "modalCover";
+		this.modalCover.onclick = (() => this.modalContainer.classList.remove(
+			'visible'));
+
+		this.modalBody = document.createElement("div");
+		this.modalBody.className = "modalBody";
+		this.modalBody.innerHTML = "modalBody";
+
+		this.modalFotter = document.createElement("div");
+		this.modalFotter.className = "modalFotter";
+
+		this.buyButton = document.createElement("button");
+		this.buyButton.className = "buyButton";
+		this.buyButton.innerHTML = "購入する";
+
+		this.cancelButton = document.createElement("button");
+		this.cancelButton.className = "cancelButton";
+		this.cancelButton.innerHTML = "閉じる";
+		this.cancelButton.onclick = (() => this.modalContainer.classList.remove(
+			'visible'));
 
 
-        this.modalFotter.appendChild(this.cancelButton);
-        this.modalFotter.appendChild(this.buyButton);
-        
-        this.modalContainer.appendChild(this.modalContent);
-        this.modalContainer.appendChild(this.modalCover);
-        this.modalContent.appendChild(this.modalHeader);
-        this.modalContent.appendChild(this.modalBody);
-        this.modalContent.appendChild(this.modalFotter);
+		this.modalFotter.appendChild(this.cancelButton);
+		this.modalFotter.appendChild(this.buyButton);
 
-        window.onclick = function(event) {
-            if (event.target.className === "modalContainer") {
-                event.target.style.display = "none";
-            }
-        }
-        
-        // const openModalButtons = document.querySelectorAll('.open-modal'),
-        //       modal = document.querySelector('.modal'),
-        //       closeModalButtons = document.querySelectorAll('.close-modal');
-        // openModalButtons.forEach(openBtn => {
-        //   openBtn.addEventListener('click', openModal)
-        // });
-        
-        
-       
+		this.modalContainer.appendChild(this.modalContent);
+		this.modalContainer.appendChild(this.modalCover);
+		this.modalContent.appendChild(this.modalHeader);
+		this.modalContent.appendChild(this.modalBody);
+		this.modalContent.appendChild(this.modalFotter);
 
-        document.body.appendChild(this.modalContainer);
-    }
+		window.onclick = function(event) {
+			if (event.target.className === "modalContainer") {
+				event.target.style.display = "none";
+			}
+		}
+
+		// const openModalButtons = document.querySelectorAll('.open-modal'),
+		//       modal = document.querySelector('.modal'),
+		//       closeModalButtons = document.querySelectorAll('.close-modal');
+		// openModalButtons.forEach(openBtn => {
+		//   openBtn.addEventListener('click', openModal)
+		// });
+
+
+		document.body.appendChild(this.modalContainer);
+	}
 }
-
