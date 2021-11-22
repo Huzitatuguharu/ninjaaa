@@ -6,10 +6,13 @@ const App = {
 			this.controllers.renderHeader();
 			this.controllers.renderContent();
 			this.controllers.renderFooter();
-			console.log(this.modalContainer);
+			console.log(this.modal.modalContainer);
+			console.log(App.modal.modalContainer);
 
 			App.elements.header.headerCart.onclick = (() => this.modal.modalContainer.classList
 				.add('visible'));
+			this.modal.modalContainer.appendChild(App.elements.content.cartContentBox);
+
 			console.log("Finished");
 		},
 
@@ -123,7 +126,6 @@ const App = {
 							localStorage.setItem("list", JSON.stringify(App.state.userCart));
 						}
 					}
-					console.log(App.state.result);
 
 					for (let i = 0; i < list.state.item.length; i++) {
 						const card = makeItem(list.state.item[i]);
@@ -151,6 +153,8 @@ const App = {
 						return cartContent;
 
 					}
+					// console.log(this.modal.modalContainer);
+					console.log(App.modal.modalContainer);
 
 					if (localStorage.getItem('list') !== null) {
 						App.state.userCart = JSON.parse(localStorage.getItem('list'));

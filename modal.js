@@ -31,7 +31,7 @@ class Modal {
 		this.cancelButton.innerHTML = "閉じる";
 		this.cancelButton.onclick = (() => this.modalContainer.classList.remove(
 			'visible'));
-
+		
 
 		this.modalFotter.appendChild(this.cancelButton);
 		this.modalFotter.appendChild(this.buyButton);
@@ -54,8 +54,8 @@ class Modal {
 		// openModalButtons.forEach(openBtn => {
 		//   openBtn.addEventListener('click', openModal)
 		// });
+console.log(App.elements.content.cartContentBox)
 
-
-		document.body.appendChild(this.modalContainer);
+	document.body.appendChild(this.modalContainer);
 	}
 }
