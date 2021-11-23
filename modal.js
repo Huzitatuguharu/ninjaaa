@@ -17,7 +17,6 @@ class Modal {
 
 		this.modalBody = document.createElement("div");
 		this.modalBody.className = "modalBody";
-		this.modalBody.innerHTML = "modalBody";
 
 		this.modalFotter = document.createElement("div");
 		this.modalFotter.className = "modalFotter";

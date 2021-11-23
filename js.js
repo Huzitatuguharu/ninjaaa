@@ -6,8 +6,6 @@ const App = {
 			this.controllers.renderHeader();
 			this.controllers.renderContent();
 			this.controllers.renderFooter();
-			console.log(this.modal.modalContainer);
-			console.log(App.modal.modalContainer);
 
 			App.elements.header.headerCart.onclick = (() => this.modal.modalContainer.classList
 				.add('visible'));
@@ -54,8 +52,6 @@ const App = {
 
 					const makeItem = (item) => {
 						const goods = item;
-						let slideIndex = goods.slideIndex;
-						console.log(slideIndex);
 						const card = document.createElement("div");
 						card.className = "card";
 						const item_name = document.createElement("p");
@@ -99,15 +95,8 @@ const App = {
 						buyButton.className = "buyButton";
 						buyButton.onclick = addCart;
 						buttonArea.appendChild(buyButton);
-						// form.appendChild(numberLabel);
-						// form.appendChild(numberInput);
-						// form.appendChild(errorText);
 						form.appendChild(buttonArea);
 						card.appendChild(form);
-
-
-						console.log(list.state.usercurt)
-
 						return card;
 					}
 
@@ -153,17 +142,17 @@ const App = {
 						return cartContent;
 
 					}
-					// console.log(this.modal.modalContainer);
-					console.log(App.modal.modalContainer);
-
+					
 					if (localStorage.getItem('list') !== null) {
 						App.state.userCart = JSON.parse(localStorage.getItem('list'));
 						showCart(App.state.userCart);
 						const cartContent = showCart(App.state.userCart);
 						els.cartContentBox.appendChild(cartContent);
-
+						App.modal.modalContainer.appendChild(cartContent);
+						App.modal.modalBody.appendChild(cartContent);
+						
 					} else {
-						console.log("ccc")
+						console.log("curt empty")
 					}
 
 
@@ -243,7 +232,6 @@ const App = {
 						for (let i = 0; i < imgs.length; i++) {
 							imgs[i].style.display = "none";
 						}
-						console.log(imgs);
 						// for (i = 0; i < dots.length; i++) {
 						//   dots[i].className = dots[i].className.replace(" active", "");
 						// }
