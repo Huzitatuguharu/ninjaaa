@@ -657,7 +657,7 @@ template {
 .cartContent,
 .card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 16px;
   width: 30%;
   min-width: 300px;
   min-height: 100%;

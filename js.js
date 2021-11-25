@@ -71,25 +71,12 @@ const App = {
 
 						const buttonArea = document.createElement("div");
 						const buyButton = document.createElement("button");
-						// const numberLabel = document.createElement("label");
-						// numberLabel.innerHTML = "個数を入力";
-						// numberLabel.htmlFor = goods.name;
 
 						const form = document.createElement("form");
-						// const numberInput = document.createElement("input");
-						// const errorText = document.createElement("p");
 						form.className = "formArea"
-							// numberInput.id = goods.name;
-							// numberInput.step = 1;
-							// numberInput.type="number";
-							// numberInput.min = 0;
-							// numberInput.max = goods.stock;
-
-						// errorText.innerHTML="エラーです"
-						// errorText.className = "errorText";
 
 
-						buyButton.innerHTML = "カゴに追加";
+						buyButton.innerHTML = "カートに追加";
 						buyButton.id = item.name;
 						buyButton.value = goods.price;
 						buyButton.className = "buyButton";
@@ -152,6 +139,9 @@ const App = {
 						App.modal.modalBody.appendChild(cartContent);
 						
 					} else {
+						App.modal.modalHeader.innerHTML = 'カートに商品は入っていません';
+						App.modal.buyButton.style.display = "none";
+
 						console.log("curt empty")
 					}
 

@@ -24,10 +24,22 @@ class Modal {
 		this.buyButton = document.createElement("button");
 		this.buyButton.className = "buyButton";
 		this.buyButton.innerHTML = "購入する";
-
+		this.buyButton.onclick = buyButtonClick;
+		
+		function goHome(){
+			document.location.href=''
+		}
+		function buyButtonClick(){
+			localStorage.clear();
+			App.elements.header.cartIcon.style.display = "none";
+			App.modal.modalFotter.style.display = "none";
+			App.modal.modalHeader.innerHTML = 'ご購入ありがとうございます！';
+			App.modal.modalBody.innerHTML = '一定時間後にホームに戻ります';
+			setTimeout(goHome,5000)
+		}
 		this.cancelButton = document.createElement("button");
 		this.cancelButton.className = "cancelButton";
-		this.cancelButton.innerHTML = "閉じる";
+		this.cancelButton.innerHTML = "買い物をつづける";
 		this.cancelButton.onclick = (() => this.modalContainer.classList.remove(
 			'visible'));
 		
@@ -47,14 +59,11 @@ class Modal {
 			}
 		}
 
-		// const openModalButtons = document.querySelectorAll('.open-modal'),
-		//       modal = document.querySelector('.modal'),
-		//       closeModalButtons = document.querySelectorAll('.close-modal');
-		// openModalButtons.forEach(openBtn => {
-		//   openBtn.addEventListener('click', openModal)
-		// });
-console.log(App.elements.content.cartContentBox)
-
 	document.body.appendChild(this.modalContainer);
+	}
+	comleate(){
+
+
+		
 	}
 }
