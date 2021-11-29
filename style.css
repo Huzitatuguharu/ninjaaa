@@ -571,6 +571,11 @@ template {
   background-color: #89c4ff;
 }
 
+body {
+  width: 100%;
+  margin: auto;
+}
+
 .header {
   width: 100%;
   position: -webkit-sticky;
@@ -647,14 +652,13 @@ template {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 20px;
-  gap: 20px;
+  gap: 30px;
   margin: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.cartContent,
 .card {
   background-color: white;
   border-radius: 16px;
@@ -669,14 +673,19 @@ template {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 16px;
+  gap: 30px;
 }
 
 .cartContent {
-  margin: 50px;
   background-color: white;
   border-radius: 10px;
-  padding: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 16px;
 }
 
 .formArea {
